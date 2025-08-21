@@ -7,7 +7,7 @@ import { Product } from '../models/product.model';
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3000/products'; // API simulada
+  private apiUrl = 'http://localhost:3001/products'; // API simulada
 
   constructor(private http: HttpClient) {}
 
