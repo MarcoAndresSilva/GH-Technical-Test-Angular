@@ -1,0 +1,75 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" novalidate>
+  <!-- Campo Nombre -->
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre del Producto</label>
+    <input
+      type="text"
+      id="name"
+      class="form-control"
+      formControlName="name"
+      [ngClass]="{
+        'is-invalid': name?.invalid && (name?.dirty || name?.touched)
+      }"
+    />
+    <div
+      *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="name?.errors?.['required']">El nombre es obligatorio.</div>
+      <div *ngIf="name?.errors?.['minlength']">
+        Debe tener al menos 3 caracteres.
+      </div>
+    </div>
+  </div>
+
+  <!-- Campo Precio -->
+  <div class="mb-3">
+    <label for="price" class="form-label">Precio</label>
+    <input
+      type="number"
+      id="price"
+      class="form-control"
+      formControlName="price"
+      [ngClass]="{
+        'is-invalid': price?.invalid && (price?.dirty || price?.touched)
+      }"
+    />
+    <div
+      *ngIf="price?.invalid && (price?.dirty || price?.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="price?.errors?.['required']">El precio es obligatorio.</div>
+      <div *ngIf="price?.errors?.['min']">
+        El precio debe ser mayor que cero.
+      </div>
+    </div>
+  </div>
+
+  <!-- Campo Stock -->
+  <div class="mb-3">
+    <label for="stock" class="form-label">Stock</label>
+    <input
+      type="number"
+      id="stock"
+      class="form-control"
+      formControlName="stock"
+      [ngClass]="{
+        'is-invalid': stock?.invalid && (stock?.dirty || stock?.touched)
+      }"
+    />
+    <div
+      *ngIf="stock?.invalid && (stock?.dirty || stock?.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="stock?.errors?.['required']">El stock es obligatorio.</div>
+      <div *ngIf="stock?.errors?.['min']">El stock no puede ser negativo.</div>
+      <div *ngIf="stock?.errors?.['pattern']">
+        El stock debe ser un número entero.
+      </div>
+    </div>
+  </div>
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+  </div>
+</form>

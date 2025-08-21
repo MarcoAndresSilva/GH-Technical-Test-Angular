@@ -1,0 +1,62 @@
+<div class="dashboard-panel">
+  <header class="dashboard-header">
+    <h1>Gestión de Productos</h1>
+
+    <div class="dashboard-toolbar">
+      <button
+        class="btn btn-primary"
+        (click)="openAddProductModal(addProductModal)"
+      >
+        <i class="bi bi-plus-lg me-2"></i>
+        Agregar Producto
+      </button>
+    </div>
+  </header>
+
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th class="text-end">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products$ | async">
+          <td data-label="Nombre">{{ product.name }}</td>
+          <td data-label="Precio">
+            {{ product.price | currency : "CLP" : "symbol-narrow" : "1.0-0" }}
+          </td>
+          <td data-label="Stock">{{ product.stock }}</td>
+          <td data-label="Acciones" class="text-end">
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="onDeleteProduct(product.id, product.name)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<ng-template #addProductModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Agregar Nuevo Producto</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <app-product-form
+      (formSubmit)="onAddProduct($event, modal)"
+    ></app-product-form>
+  </div>
+</ng-template>

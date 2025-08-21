@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": "0",
+      "name": "MacBook Pro 16",
+      "price": 1790990,
+      "stock": 20
+    },
+    {
+      "id": "1",
+      "name": "iPhone 15 Pro",
+      "price": 1399990,
+      "stock": 35
+    },
+    {
+      "id": "2",
+      "name": "iPad Air M2",
+      "price": 799990,
+      "stock": 25
+    },
+    {
+      "id": "3",
+      "name": "Galaxy S24",
+      "price": 1249990,
+      "stock": 40
+    },
+    {
+      "id": "4",
+      "name": "PS5 Slim",
+      "price": 649990,
+      "stock": 15
+    },
+    {
+      "id": "5",
+      "name": "Xbox X",
+      "price": 599990,
+      "stock": 18
+    },
+    {
+      "id": "6",
+      "name": "Switch OLED",
+      "price": 459990,
+      "stock": 22
+    },
+    {
+      "id": "7",
+      "name": "AirPods Pro",
+      "price": 249990,
+      "stock": 50
+    },
+    {
+      "id": "8",
+      "name": "Monitor 27\"",
+      "price": 119990,
+      "stock": 30
+    },
+    {
+      "id": "9",
+      "name": "SSD 1TB",
+      "price": 89990,
+      "stock": 60
+    }
+  ]
+}
