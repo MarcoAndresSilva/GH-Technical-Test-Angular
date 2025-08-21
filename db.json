@@ -2,27 +2,63 @@
   "products": [
     {
       "id": "0",
-      "name": "Mac book Pro 16 M4\"",
-      "price": 179990,
+      "name": "MacBook Pro 16\" M4",
+      "price": 1790990,
       "stock": 20
     },
     {
       "id": "1",
-      "name": "Monitor Curvo 27\"",
-      "price": 119990,
-      "stock": 50
+      "name": "Samsung Monitor Curvo 27\" Odyssey G5",
+      "price": 219990,
+      "stock": 35
     },
     {
       "id": "2",
-      "name": "Mouse Ergonómico",
-      "price": 35990,
-      "stock": 120
+      "name": "Logitech MX Master 3S Mouse Inalámbrico",
+      "price": 89990,
+      "stock": 80
     },
     {
       "id": "3",
-      "name": "Teclado Keychron K6",
-      "price": 89990,
-      "stock": 75
+      "name": "Apple iPhone 15 Pro 256GB",
+      "price": 1399990,
+      "stock": 15
+    },
+    {
+      "id": "4",
+      "name": "Sony WH-1000XM5 Audífonos Inalámbricos",
+      "price": 349990,
+      "stock": 40
+    },
+    {
+      "id": "5",
+      "name": "Samsung Galaxy Tab S9 Ultra 14.6\"",
+      "price": 1299990,
+      "stock": 25
+    },
+    {
+      "id": "6",
+      "name": "Razer BlackWidow V4 Pro Teclado Mecánico",
+      "price": 199990,
+      "stock": 60
+    },
+    {
+      "id": "7",
+      "name": "Dell XPS 13 Plus Laptop Intel i7",
+      "price": 1599990,
+      "stock": 18
+    },
+    {
+      "id": "8",
+      "name": "Apple Watch Series 9 GPS 45mm",
+      "price": 429990,
+      "stock": 45
+    },
+    {
+      "id": "9",
+      "name": "NVIDIA GeForce RTX 4080 Super 16GB",
+      "price": 1249990,
+      "stock": 10
     }
   ]
 }

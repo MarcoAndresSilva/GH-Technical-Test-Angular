@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Product } from '@core/models/product.model';
 import { ProductService } from '@core/services/product.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from '@shared/services/toast.service';
 
 @Component({
   selector: 'app-product-dashboard',
@@ -15,7 +16,8 @@ export class ProductDashboardComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastService: ToastService
   ) {}
 
   ngOnInit(): void {
@@ -26,13 +28,54 @@ export class ProductDashboardComponent implements OnInit {
     this.products$ = this.productService.getProducts();
   }
 
-  onDeleteProduct(id: number): void {
-    this.productService.deleteProduct(id).subscribe(() => {
-      this.loadProducts();
-    });
+  onDeleteProduct(id: number, name: string): void {
+    const confirmation = window.confirm(
+      `Estas seguro de eliminar el producto ${name}?`
+    );
+
+    if (confirmation) {
+      this.productService.deleteProduct(id).subscribe({
+        next: () => {
+          this.loadProducts();
+          this.toastService.show('Producto eliminado', {
+            classname: 'bg-success text-light',
+            delay: 2000,
+          });
+        },
+        error: (err) => {
+          this.toastService.show('Error al eliminar el producto', {
+            classname: 'bg-danger text-light',
+            delay: 2000,
+          });
+        },
+      });
+    }
   }
 
   openAddProductModal(content: any): void {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    this.modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title',
+      centered: true,
+    });
+  }
+
+  onAddProduct(newProduct: Omit<Product, 'id'>, modal: any): void {
+    this.productService.addProduct(newProduct).subscribe({
+      next: () => {
+        this.loadProducts();
+        this.toastService.show('Producto Agregado', {
+          classname: 'bg-success text-light',
+          delay: 2000,
+        });
+        modal.close();
+      },
+      error: (err) => {
+        console.error('Error al agregar el producto', err);
+        this.toastService.show('Error al agregar el producto', {
+          classname: 'bg-danger text-light',
+          delay: 2000,
+        });
+      },
+    });
   }
 }
