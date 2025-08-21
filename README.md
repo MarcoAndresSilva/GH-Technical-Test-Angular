@@ -1,59 +1,72 @@
-# ECommerceApp
+# Prueba Técnica - Gestor de Productos (Grupo Hunting)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+Aplicación de gestión de productos desarrollada con **Angular 19** que demuestra un enfoque profesional en arquitectura de software, calidad de código y experiencia de usuario. La solución cumple y excede todos los requisitos de la prueba técnica.
 
-## Development server
+<img width="392" height="512" alt="image" src="https://github.com/user-attachments/assets/a583123e-291f-4573-bfca-a513dc817e25" />
 
-To start a local development server, run:
+## ✨ Características Implementadas
 
+-   **Listado de productos**: Visualización de productos en una tabla responsiva y moderna.
+-   **Creación de productos**: Formulario modal con validaciones reactivas para agregar nuevos productos.
+-   **Eliminación de productos**: Funcionalidad para eliminar productos con un diálogo de confirmación.
+-   **Feedback al Usuario**: Notificaciones "toast" para acciones exitosas o fallidas.
+-   **Diseño Responsivo**: La interfaz se adapta fluidamente a cualquier tamaño de pantalla (`mobile-first`).
+-   **Arquitectura Robusta**: Código limpio, modular y escalable.
+
+## 🚀 Stack Tecnológico
+
+-   **Framework**: Angular 19
+-   **Arquitectura**: NgModules
+-   **Estilos**: SCSS, Bootstrap 5, Bootstrap Icons
+-   **UI Components**: NgBootstrap 18
+-   **API Mocking**: `json-server`
+-   **Programación Asíncrona**: RxJS (Observables & Pipe `async`)
+
+## 🔧 Instalación y Puesta en Marcha
+
+**Requisitos:**
+-   Node.js (v18+)
+-   Angular CLI (v19+)
+
+**Pasos:**
+
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone https://github.com/MarcoAndresSilva/GH-Technical-Test-Angular.git
+    cd GH-Technical-Test-Angular
+    ```
+
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
+
+3.  **Iniciar la API simulada:**
+    *   Abre una **nueva terminal** en la misma carpeta y ejecuta:
+    ```bash
+    json-server --watch db.json --port 3001
+    ```
+    *   El servidor de la API estará disponible en `http://localhost:3001`.
+
+4.  **Iniciar la aplicación Angular:**
+    *   En la **primera terminal**, ejecuta:
+    ```bash
+    ng serve -o
+    ```
+    *   La aplicación se abrirá automáticamente en `http://localhost:4200`.
+
+## 🏛️ Decisiones de Arquitectura
+
+Para un detalle exhaustivo de las decisiones técnicas, desafíos encontrados y justificaciones, por favor, consulte el archivo [**ARCHITECTURE.md**](ARCHITECTURE.md).
+
+## 🌟 Versión Moderna (Standalone Components)
+
+Adicionalmente, se ha desarrollado una versión alternativa de esta aplicación en la rama `feat/modern-approach`. Esta versión ha sido refactorizada para utilizar **Standalone Components**, la arquitectura moderna de Angular, y se integra con una API pública real.
+
+Para probarla, ejecute:
 ```bash
-ng serve
+git checkout feat/modern-approach
+# Siga las instrucciones del README en esa rama.
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+*Realizado por Marco Andrés Silva*
