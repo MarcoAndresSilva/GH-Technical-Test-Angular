@@ -1,23 +1,28 @@
 {
   "products": [
-    { "id": 1, "name": "Laptop Gamer Pro X", "price": 1250000, "stock": 15 },
     {
-      "id": 2,
-      "name": "Mouse Inalámbrico Ergonómico",
+      "id": "0",
+      "name": "Mac book Pro 16 M4\"",
+      "price": 179990,
+      "stock": 20
+    },
+    {
+      "id": "1",
+      "name": "Monitor Curvo 27\"",
+      "price": 119990,
+      "stock": 50
+    },
+    {
+      "id": "2",
+      "name": "Mouse Ergonómico",
       "price": 35990,
       "stock": 120
     },
     {
-      "id": 3,
-      "name": "Teclado Mecánico RGB TKL",
+      "id": "3",
+      "name": "Teclado Keychron K6",
       "price": 89990,
       "stock": 75
-    },
-    {
-      "id": 4,
-      "name": "Monitor Curvo 27\" 144Hz",
-      "price": 279990,
-      "stock": 40
     }
   ]
 }

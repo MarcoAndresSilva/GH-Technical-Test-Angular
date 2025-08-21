@@ -28,7 +28,7 @@ export class ProductDashboardComponent implements OnInit {
 
   onDeleteProduct(id: number): void {
     this.productService.deleteProduct(id).subscribe(() => {
-      this.loadProducts(); // Recargamos la lista después de borrar
+      this.loadProducts();
     });
   }
 
