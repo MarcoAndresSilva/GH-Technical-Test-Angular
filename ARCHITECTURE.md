@@ -4,14 +4,21 @@ Este documento detalla las decisiones técnicas tomadas durante el desarrollo de
 
 ## 1. Stack Tecnológico y Justificación
 
-- **Framework:** Angular 16 (con NgModules). Se utilizó la arquitectura tradicional basada en `NgModule` para demostrar dominio sobre el modelo clásico de Angular, ampliamente utilizado en proyectos empresariales.
+- **Framework:** Angular 19 (generado vía Angular CLI). Aunque la prueba solicita "16+", se optó por utilizar una versión reciente para demostrar dominio de las últimas características estables del framework.
+- **Arquitectura:** Se utiliza el modelo clásico basado en `NgModule` en esta rama principal para demostrar la capacidad de trabajar en proyectos empresariales existentes.
+- **Manejo de HTTP:** Se configuró `HttpClient` mediante la función `provideHttpClient()` en lugar del obsoleto `HttpClientModule`, siguiendo las mejores prácticas actuales de Angular para mejorar el tree-shaking y la compatibilidad futura.
 
-- **API Mock:** Se planifica el uso de `json-server` para simular una API REST de forma rápida y eficiente, permitiendo centrar el desarrollo en la lógica del frontend.
+## 2. Calidad y Mantenibilidad del Código
 
-- **Manejo de HTTP:** A pesar de utilizar una arquitectura basada en `NgModule`, se optó por configurar `HttpClient` mediante la función `provideHttpClient()` en lugar del obsoleto `HttpClientModule`. Esta decisión se alinea con las mejores prácticas actuales de Angular, asegurando una mayor eficiencia (tree-shaking) y una transición más sencilla a arquitecturas Standalone en el futuro.
+- **Alias de Ruta (Path Aliases):** Se ha configurado el `tsconfig.json` con alias de ruta (`@core`, `@features`) para evitar importaciones relativas frágiles (`../../`). Esto mejora la legibilidad y robustez del código, facilitando futuras refactorizaciones.
 
-## 2. Estructura del Proyecto
+## 3. Estructura del Proyecto
 
-El proyecto se organiza siguiendo una estructura orientada a funcionalidades para promover la escalabilidad y mantenibilidad:
+- `/core`: Contiene la lógica transversal y los fundamentos de la aplicación (servicios, modelos).
+- `/features`: Contiene los componentes que representan una funcionalidad completa, como el `product-dashboard`.
 
-- `/core`: Contiene la lógica transversal y los fundamentos de la aplicación, como servicios (`/services`) y modelos de datos (`/models`).
+## 4. Flujo de Datos y UI
+
+- **Programación Reactiva (RxJS):** El `ProductService` retorna `Observables` para manejar los flujos de datos de forma asíncrona.
+- **Pipe `async`:** Se utiliza el pipe `async` en las plantillas para la suscripción, delegando la gestión de la memoria (desuscripción automática) a Angular y manteniendo los componentes más limpios.
+- **UI y Componentes:** Se seleccionó **Bootstrap 5** y **NgBootstrap 18** para la presentación, asegurando la compatibilidad con Angular 19 y siguiendo las pistas del documento de la prueba.
