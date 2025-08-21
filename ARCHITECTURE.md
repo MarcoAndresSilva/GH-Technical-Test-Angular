@@ -31,3 +31,7 @@ Este documento detalla las decisiones técnicas tomadas durante el desarrollo de
 - **UI y Componentes:** Se seleccionó **Bootstrap 5** y **NgBootstrap 18** para la presentación, asegurando la compatibilidad con Angular 19 y siguiendo las pistas del documento de la prueba.
 
 - **Jerarquía de Acciones:** Se separó el título de la página de las acciones principales (ej. "Agregar Producto") en un `toolbar` dedicado. Esta decisión mejora la estructura semántica y la escalabilidad de la UI. Se refinó también el comportamiento del botón "Eliminar" en la vista móvil para que mantenga un tamaño apropiado, mejorando la experiencia de usuario en acciones destructivas.
+
+## 6. Desafios tecnicos
+
+- **Resolución de Dependencias (i18n):** Durante la implementación del componente `ngb-toast`, se encontró un error de `ReferenceError: $localize is not defined`. Se diagnosticó que la versión de `ng-bootstrap` utilizada depende del paquete de internacionalización (`@angular/localize`). El problema se resolvió instalando y configurando dicho paquete con `ng add @angular/localize`, demostrando la capacidad de diagnosticar y solucionar conflictos de dependencias en el ecosistema de Angular.
