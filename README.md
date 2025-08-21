@@ -35,8 +35,8 @@ Aplicación de gestión de productos desarrollada con **Angular 19**, enfocada e
 
 -   **Framework**: Angular 19
 -   **Arquitectura**: NgModules
--   **API Mocking**: **Angular In-Memory Web API** (para un despliegue sin servidor).
--   **Programación Asíncrona**: RxJS (Observables & Pipe `async`)
+-   **API Mocking**: **Servicio Fake Puro en Angular con RxJS** (para total control y cero dependencias).
+-   **Programación Asíncrona**: RxJS (Operadores `of`, `delay`, y Pipe `async`)
 -   **Estilos**: SCSS, Bootstrap 5, Bootstrap Icons
 -   **UI Components**: NgBootstrap 18
 
@@ -64,7 +64,7 @@ Si prefiere clonar y ejecutar el proyecto localmente, siga estos pasos.
     ```
 
 3.  **Iniciar la aplicación:**
-    *Este proyecto utiliza una API en memoria, por lo que no se requiere un servidor de API externo.*
+    *Este proyecto utiliza un servicio interno para simular la API, por lo que no se requiere ningún servidor externo.*
     ```bash
     ng serve -o
     ```
@@ -74,7 +74,7 @@ Si prefiere clonar y ejecutar el proyecto localmente, siga estos pasos.
 
 ## 🏛️ Decisiones de Arquitectura
 
-Para un detalle exhaustivo de las decisiones técnicas, desafíos encontrados y justificaciones, por favor, consulte el archivo [**ARCHITECTURE.md**](ARCHITECTURE.md).
+Para un detalle exhaustivo de las decisiones técnicas, desafíos encontrados y justificaciones (incluida la elección de la estrategia de Mocking de API), por favor, consulte el archivo [**ARCHITECTURE.md**](ARCHITECTURE.md).
 
 ---
 
