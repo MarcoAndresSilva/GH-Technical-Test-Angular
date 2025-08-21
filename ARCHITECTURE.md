@@ -32,6 +32,9 @@ Este documento detalla las decisiones técnicas tomadas durante el desarrollo de
 
 - **Jerarquía de Acciones:** Se separó el título de la página de las acciones principales (ej. "Agregar Producto") en un `toolbar` dedicado. Esta decisión mejora la estructura semántica y la escalabilidad de la UI. Se refinó también el comportamiento del botón "Eliminar" en la vista móvil para que mantenga un tamaño apropiado, mejorando la experiencia de usuario en acciones destructivas.
 
-## 6. Desafios tecnicos
+## 7. Desafíos Técnicos y Resolución
 
-- **Resolución de Dependencias (i18n):** Durante la implementación del componente `ngb-toast`, se encontró un error de `ReferenceError: $localize is not defined`. Se diagnosticó que la versión de `ng-bootstrap` utilizada depende del paquete de internacionalización (`@angular/localize`). El problema se resolvió instalando y configurando dicho paquete con `ng add @angular/localize`, demostrando la capacidad de diagnosticar y solucionar conflictos de dependencias en el ecosistema de Angular.
+- **Estrategia de Simulación de API:** El requisito permitía usar `json-server` o un "servicio fake". Durante el desarrollo, se evaluaron tres enfoques:
+  1.  **`json-server`:** Útil para el desarrollo inicial, pero problemático para el despliegue.
+  2.  **`angular-in-memory-web-api`:** Se exploró esta opción para facilitar el despliegue, pero se encontraron conflictos de dependencias (`peer dependency`) con la versión de Angular 19 del proyecto, introduciendo un riesgo de inestabilidad.
+  3.  **Servicio Fake Puro (Solución Adoptada):** Se tomó la decisión de refactorizar el `ProductService` para que funcionara como un mock autocontenido. Este servicio utiliza un array de datos local y **operadores de RxJS (`of`, `delay`, `throwError`)** para simular perfectamente el comportamiento asíncrono y la latencia de una API real. Esta solución final eliminó todas las dependencias externas conflictivas, resultando en un proyecto más robusto, estable y fácilmente desplegable, al tiempo que demuestra un dominio de la programación reactiva.

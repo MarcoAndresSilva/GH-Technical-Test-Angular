@@ -1,25 +1,40 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { Product } from '../models/product.model';
-
+import { PRODUCTS } from './mock-products';
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:3001/products'; // API simulada
+  private products: Product[] = JSON.parse(JSON.stringify(PRODUCTS));
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    return of([...this.products]).pipe(delay(500));
   }
 
-  addProduct(product: Omit<Product, 'id'>): Observable<Product> {
-    return this.http.post<Product>(this.apiUrl, product);
+  addProduct(productData: Omit<Product, 'id'>): Observable<Product> {
+    const newId =
+      this.products.length > 0
+        ? Math.max(...this.products.map((p) => p.id)) + 1
+        : 1;
+    const newProduct: Product = { id: newId, ...productData };
+
+    this.products.push(newProduct);
+
+    return of(newProduct).pipe(delay(500));
   }
 
   deleteProduct(id: number): Observable<{}> {
-    return this.http.delete<{}>(`${this.apiUrl}/${id}`);
+    const index = this.products.findIndex((p) => p.id === id);
+
+    if (index > -1) {
+      this.products.splice(index, 1);
+      return of({}).pipe(delay(500));
+    }
+
+    return throwError(() => new Error('Producto no encontrado'));
   }
 }
