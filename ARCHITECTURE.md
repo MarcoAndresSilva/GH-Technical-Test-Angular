@@ -21,8 +21,13 @@ Este documento detalla las decisiones técnicas tomadas durante el desarrollo de
 - `/core`: Contiene la lógica transversal y los fundamentos de la aplicación (servicios, modelos).
 - `/features`: Contiene los componentes que representan una funcionalidad completa, como el `product-dashboard`.
 
-## 4. Flujo de Datos y UI
+## 4. Flujo de Datos
 
 - **Programación Reactiva (RxJS):** El `ProductService` retorna `Observables` para manejar los flujos de datos de forma asíncrona.
 - **Pipe `async`:** Se utiliza el pipe `async` en las plantillas para la suscripción, delegando la gestión de la memoria (desuscripción automática) a Angular y manteniendo los componentes más limpios.
+
+## 5. UX / UI
+
 - **UI y Componentes:** Se seleccionó **Bootstrap 5** y **NgBootstrap 18** para la presentación, asegurando la compatibilidad con Angular 19 y siguiendo las pistas del documento de la prueba.
+
+- **Jerarquía de Acciones:** Se separó el título de la página de las acciones principales (ej. "Agregar Producto") en un `toolbar` dedicado. Esta decisión mejora la estructura semántica y la escalabilidad de la UI. Se refinó también el comportamiento del botón "Eliminar" en la vista móvil para que mantenga un tamaño apropiado, mejorando la experiencia de usuario en acciones destructivas.
