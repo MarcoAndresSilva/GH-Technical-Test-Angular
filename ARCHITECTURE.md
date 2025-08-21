@@ -4,8 +4,12 @@ Este documento detalla las decisiones técnicas tomadas durante el desarrollo de
 
 ## 1. Stack Tecnológico y Justificación
 
+- **API Mock:** Se utiliza `json-server` para simular una API RESTful. Se ha creado un archivo `db.json` que se adhiere al contrato de la interfaz `Product`. Durante la ejecución, se optó por levantar el servidor en el puerto `3001` para evitar un conflicto con otro proceso local (`EADDRINUSE`), y se actualizó el endpoint en el `ProductService` acordemente.
+
 - **Framework:** Angular 19 (generado vía Angular CLI). Aunque la prueba solicita "16+", se optó por utilizar una versión reciente para demostrar dominio de las últimas características estables del framework.
+
 - **Arquitectura:** Se utiliza el modelo clásico basado en `NgModule` en esta rama principal para demostrar la capacidad de trabajar en proyectos empresariales existentes.
+
 - **Manejo de HTTP:** Se configuró `HttpClient` mediante la función `provideHttpClient()` en lugar del obsoleto `HttpClientModule`, siguiendo las mejores prácticas actuales de Angular para mejorar el tree-shaking y la compatibilidad futura.
 
 ## 2. Calidad y Mantenibilidad del Código
