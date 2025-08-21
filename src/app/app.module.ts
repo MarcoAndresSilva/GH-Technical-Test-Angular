@@ -12,7 +12,12 @@ import { ProductFormComponent } from './features/product-form/product-form.compo
 import { ToastsContainerComponent } from './shared/components/toasts-container/toasts-container.component';
 
 @NgModule({
-  declarations: [AppComponent, ProductDashboardComponent, ProductFormComponent, ToastsContainerComponent],
+  declarations: [
+    AppComponent,
+    ProductDashboardComponent,
+    ProductFormComponent,
+    ToastsContainerComponent,
+  ],
   imports: [BrowserModule, ReactiveFormsModule, NgbModule],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
