@@ -23,7 +23,7 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      title: ['', [Validators.required, Validators.minLength(3)]],
       price: [null, [Validators.required, Validators.min(0.01)]],
       stock: [
         null,
@@ -37,8 +37,8 @@ export class ProductFormComponent implements OnInit {
   }
 
   // Getter para acceder fácilmente a los controles del formulario en la plantilla
-  get name() {
-    return this.productForm.get('name');
+  get title() {
+    return this.productForm.get('title');
   }
   get price() {
     return this.productForm.get('price');

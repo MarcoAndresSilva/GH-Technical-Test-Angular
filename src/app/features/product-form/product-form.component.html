@@ -1,22 +1,22 @@
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()" novalidate>
   <!-- Campo Nombre -->
   <div class="mb-3">
-    <label for="name" class="form-label">Nombre del Producto</label>
+    <label for="title" class="form-label">Nombre del Producto</label>
     <input
       type="text"
-      id="name"
+      id="title"
       class="form-control"
-      formControlName="name"
+      formControlName="title"
       [ngClass]="{
-        'is-invalid': name?.invalid && (name?.dirty || name?.touched)
+        'is-invalid': title?.invalid && (title?.dirty || title?.touched)
       }"
     />
     <div
-      *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+      *ngIf="title?.invalid && (title?.dirty || title?.touched)"
       class="invalid-feedback"
     >
-      <div *ngIf="name?.errors?.['required']">El nombre es obligatorio.</div>
-      <div *ngIf="name?.errors?.['minlength']">
+      <div *ngIf="title?.errors?.['required']">El nombre es obligatorio.</div>
+      <div *ngIf="title?.errors?.['minlength']">
         Debe tener al menos 3 caracteres.
       </div>
     </div>
