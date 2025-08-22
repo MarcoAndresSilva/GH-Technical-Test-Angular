@@ -1,15 +1,21 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Product } from '@core/models/product.model';
+import { NgIf, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-product-form',
-  standalone: false,
+  standalone: true,
+  imports: [ReactiveFormsModule, NgIf, NgClass],
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss'],
 })
 export class ProductFormComponent implements OnInit {
-  // emitira los datos del nuevo producto omitiendo el id
   @Output() formSubmit = new EventEmitter<Omit<Product, 'id'>>();
   productForm!: FormGroup;
 
@@ -17,7 +23,7 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      title: ['', [Validators.required, Validators.minLength(3)]],
       price: [null, [Validators.required, Validators.min(0.01)]],
       stock: [
         null,
@@ -31,8 +37,8 @@ export class ProductFormComponent implements OnInit {
   }
 
   // Getter para acceder fácilmente a los controles del formulario en la plantilla
-  get name() {
-    return this.productForm.get('name');
+  get title() {
+    return this.productForm.get('title');
   }
   get price() {
     return this.productForm.get('price');
@@ -42,11 +48,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('Formulario enviado!'); // <-- PASO 1: ¿Se llama a esta función?
-    console.log('¿Es válido?', this.productForm.valid); // <-- PASO 2: ¿Cuál es su estado?
-    console.log('Errores:', this.productForm.errors); // Muestra errores a nivel de formGroup
-    console.log('Valores:', this.productForm.value); // Muestra los valores actuales
-    console.log('Errores en Nombre:', this.name?.errors); // Muestra errores específicos del control
+    console.log('Formulario enviado');
 
     if (this.productForm.invalid) {
       this.productForm.markAllAsTouched();

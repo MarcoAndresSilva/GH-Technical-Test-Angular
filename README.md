@@ -1,91 +1,48 @@
-# Prueba Técnica - Gestor de Productos (Grupo Hunting)
+# Prueba Técnica - Gestor de Productos (Versión Moderna)
 
-Aplicación de gestión de productos desarrollada con **Angular 19**, enfocada en demostrar un enfoque profesional en arquitectura de software, calidad de código y experiencia de usuario. La solución cumple y excede todos los requisitos de la prueba técnica.
-
----
+Esta rama (`feat/modern-approach`) contiene una versión refactorizada de la aplicación original, demostrando un enfoque en las arquitecturas y herramientas más recientes del ecosistema Angular.
 
 ## 🚀 Demo en Vivo
 
-**La forma más rápida de ver el proyecto en acción. No requiere instalación.**
-
-### **[➡️ Ver la aplicación desplegada en Netlify](https://gh-technical-test-angular.netlify.app/)**
+_(Próximamente, una vez desplegada esta versión)_
 
 ---
 
-## 📸 Vistas Previas
+## ✨ Mejoras Clave en esta Versión
 
-| Vista Móvil | Vista  de Escritorio |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/a583123e-291f-4573-bfca-a513dc817e25" alt="Vista Previa Desktop" width="350" /> | <img src="https://github.com/user-attachments/assets/c4ff488f-e95a-457a-9931-1d6e083a4e7b" alt="Vista Previa Mobil" width="700" /> |
-
-
----
-
-## ✨ Características Implementadas
-
--   **CRUD Completo**: Funcionalidad para Listar, Crear y Eliminar productos.
--   **Formularios Reactivos**: Creación de productos a través de un modal con validaciones del lado del cliente.
--   **UX Mejorada**: Diálogo de confirmación para acciones destructivas y notificaciones "toast" para feedback al usuario.
--   **Diseño Responsivo**: Interfaz moderna y totalmente adaptable a cualquier tamaño de pantalla (`mobile-first`).
--   **Arquitectura Robusta**: Código limpio, modular y escalable documentado en `ARCHITECTURE.md`.
+- **Arquitectura Standalone**: Toda la aplicación ha sido migrada para usar **Standalone Components**, eliminando la necesidad de `NgModule` y simplificando la estructura general.
+- **Integración con API Real**: Se ha reemplazado el mock interno por una integración con una **API REST pública (DummyJSON)**, simulando un entorno de producción real.
+- _Otras características (Listado, Creación, Eliminación, etc.) se mantienen igual que en la versión base._
 
 ---
 
-## 🚀 Stack Tecnológico
+## 🚀 Stack Tecnológico (Versión Moderna)
 
--   **Framework**: Angular 19
--   **Arquitectura**: NgModules
--   **API Mocking**: **Servicio Fake Puro en Angular con RxJS** (para total control y cero dependencias).
--   **Programación Asíncrona**: RxJS (Operadores `of`, `delay`, y Pipe `async`)
--   **Estilos**: SCSS, Bootstrap 5, Bootstrap Icons
--   **UI Components**: NgBootstrap 18
+- **Framework**: Angular 19
+- **Arquitectura**: **Standalone Components**
+- **API**: **`HttpClient` conectado a API REST pública (DummyJSON)**
+- **Programación Asíncrona**: RxJS (Observables & Pipe `async`)
+- **Estilos**: SCSS, Bootstrap 5, Bootstrap Icons
+- **UI Components**: NgBootstrap 18
 
 ---
 
-## 🔧 Ejecución en Local
+## 🔧 Ejecución en Local (Versión Moderna)
 
-Si prefiere clonar y ejecutar el proyecto localmente, siga estos pasos.
-
-**Requisitos:**
--   Node.js (v18+)
--   Angular CLI (v19+)
-
-**Pasos:**
-
-1.  **Clonar el repositorio:**
+1.  **Asegúrate de estar en esta rama:**
     ```bash
-    git clone https://github.com/MarcoAndresSilva/GH-Technical-Test-Angular.git
-    cd GH-Technical-Test-Angular
+    git checkout feat/modern-approach
     ```
-
 2.  **Instalar dependencias:**
     ```bash
     npm install
     ```
-
 3.  **Iniciar la aplicación:**
-    *Este proyecto utiliza un servicio interno para simular la API, por lo que no se requiere ningún servidor externo.*
+    _Esta versión se conecta a una API pública, por lo que no se requiere ningún servidor local._
     ```bash
     ng serve -o
     ```
-    *   La aplicación se abrirá en `http://localhost:4200` y funcionará de forma autónoma.
 
 ---
 
-## 🏛️ Decisiones de Arquitectura
-
-Para un detalle exhaustivo de las decisiones técnicas, desafíos encontrados y justificaciones (incluida la elección de la estrategia de Mocking de API), por favor, consulte el archivo [**ARCHITECTURE.md**](ARCHITECTURE.md).
-
----
-
-## 🌟 Versión Moderna (Standalone Components)
-
-Adicionalmente, se ha desarrollado una versión alternativa en la rama `feat/modern-approach`. Esta versión ha sido refactorizada para utilizar **Standalone Components**, la arquitectura moderna de Angular, y se integra con una API pública real.
-
-Para probarla, ejecute:
-```bash
-git checkout feat/modern-approach
-# Las instrucciones específicas se encuentran en el README de esa rama.
-```
----
-*Realizado por Marco Andrés Silva*
+_Realizado por Marco Andrés Silva_

@@ -1,9 +1,10 @@
-/// <reference types="@angular/localize" />
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { provideHttpClient } from '@angular/common/http';
+import { importProvidersFrom } from '@angular/core';
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-platformBrowserDynamic().bootstrapModule(AppModule, {
-  ngZoneEventCoalescing: true,
-})
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [provideHttpClient(), importProvidersFrom(NgbModule)],
+}).catch((err) => console.error(err));

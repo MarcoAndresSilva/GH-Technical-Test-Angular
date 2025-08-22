@@ -1,40 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { delay } from 'rxjs/operators';
-import { Product } from '../models/product.model';
-import { PRODUCTS } from './mock-products';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map } from 'rxjs'; // <-- Importa 'map'
+import { Product, ProductApiResponse } from '../models/product.model';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  private products: Product[] = JSON.parse(JSON.stringify(PRODUCTS));
+  private apiUrl = 'https://dummyjson.com/products';
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    return of([...this.products]).pipe(delay(500));
+    return this.http
+      .get<ProductApiResponse>(this.apiUrl)
+      .pipe(map((response) => response.products));
   }
 
-  addProduct(productData: Omit<Product, 'id'>): Observable<Product> {
-    const newId =
-      this.products.length > 0
-        ? Math.max(...this.products.map((p) => p.id)) + 1
-        : 1;
-    const newProduct: Product = { id: newId, ...productData };
-
-    this.products.push(newProduct);
-
-    return of(newProduct).pipe(delay(500));
+  addProduct(
+    productData: Omit<Product, 'id' | 'thumbnail'>
+  ): Observable<Product> {
+    return this.http.post<Product>(
+      `${this.apiUrl}/add`,
+      JSON.stringify(productData),
+      {
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   }
 
-  deleteProduct(id: number): Observable<{}> {
-    const index = this.products.findIndex((p) => p.id === id);
-
-    if (index > -1) {
-      this.products.splice(index, 1);
-      return of({}).pipe(delay(500));
-    }
-
-    return throwError(() => new Error('Producto no encontrado'));
+  deleteProduct(id: number): Observable<Product> {
+    return this.http.delete<Product>(`${this.apiUrl}/${id}`);
   }
 }
