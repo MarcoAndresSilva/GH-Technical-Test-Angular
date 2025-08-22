@@ -5,9 +5,12 @@ import { ProductService } from '@core/services/product.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastService } from '@shared/services/toast.service';
 
+import { AsyncPipe, CurrencyPipe, NgForOf } from '@angular/common';
+import { ProductFormComponent } from '@features/product-form/product-form.component';
 @Component({
   selector: 'app-product-dashboard',
-  standalone: false,
+  standalone: true,
+  imports: [AsyncPipe, CurrencyPipe, NgForOf, ProductFormComponent],
   templateUrl: './product-dashboard.component.html',
   styleUrls: ['./product-dashboard.component.scss'],
 })
