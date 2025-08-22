@@ -4,7 +4,7 @@ Esta rama (`feat/modern-approach`) contiene una versión refactorizada de la apl
 
 ## 🚀 Demo en Vivo
 
-_(Próximamente, una vez desplegada esta versión)_
+(https://deploy-preview-5--gh-technical-test-angular.netlify.app/)
 
 ---
 
@@ -13,6 +13,7 @@ _(Próximamente, una vez desplegada esta versión)_
 - **Arquitectura Standalone**: Toda la aplicación ha sido migrada para usar **Standalone Components**, eliminando la necesidad de `NgModule` y simplificando la estructura general.
 - **Integración con API Real**: Se ha reemplazado el mock interno por una integración con una **API REST pública (DummyJSON)**, simulando un entorno de producción real.
 - _Otras características (Listado, Creación, Eliminación, etc.) se mantienen igual que en la versión base._
+- **Actualizaciones Optimistas de UI**: Para una experiencia de usuario fluida e instantánea, las acciones de agregar y eliminar productos actualizan la interfaz de inmediato, sin esperar la respuesta de la API.
 
 ---
 
