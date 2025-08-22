@@ -82,6 +82,10 @@ Para un detalle exhaustivo de las decisiones técnicas, desafíos encontrados y 
 
 Adicionalmente, se ha desarrollado una versión alternativa en la rama `feat/modern-approach`. Esta versión ha sido refactorizada para utilizar **Standalone Components**, la arquitectura moderna de Angular, y se integra con una API pública real.
 
+## 🚀 Demo en Vivo Version Moderna Consumiendo APi real
+
+### **[➡️ Ver la aplicación desplegada en Netlify](https://deploy-preview-5--gh-technical-test-angular.netlify.app/)**
+
 Para probarla, ejecute:
 ```bash
 git checkout feat/modern-approach
