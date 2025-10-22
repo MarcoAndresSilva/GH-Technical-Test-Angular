@@ -74,7 +74,7 @@ Si prefiere clonar y ejecutar el proyecto localmente, siga estos pasos.
 
 ## 🏛️ Decisiones de Arquitectura
 
-Para un detalle exhaustivo de las decisiones técnicas, desafíos encontrados y justificaciones (incluida la elección de la estrategia de Mocking de API), por favor, consulte el archivo [**ARCHITECTURE.md**](ARCHITECTURE.md).
+Para un detalle exhaustivo de las decisiones técnicas, desafíos y justificaciones (incluida la elección de la estrategia de Mocking de API), por favor, consulte el archivo [**ARCHITECTURE.md**](ARCHITECTURE.md).
 
 ---
 
