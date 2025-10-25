@@ -6,7 +6,7 @@ Aplicación de gestión de productos desarrollada con **Angular 19**, enfocada e
 
 ## 🚀 Demo en Vivo
 
-**La forma más rápida de ver el proyecto en acción. No instalación.**
+**La forma más rápida de ver el proyecto en acción. No requiere instalación.**
 
 ### **[➡️ Ver la aplicación desplegada en Netlify](https://gh-technical-test-angular.netlify.app/)**
 
