@@ -1,6 +1,6 @@
 # Prueba Técnica - Gestor de Productos (Grupo Hunting)
 
-Aplicación de gestión de productos desarrollada con **Angular 19**, enfocada en demostrar un enfoque profesional en arquitectura de software, calidad de código y experiencia de usuario. La solución cumple y excede todos los requisitos de la prueba técnica.
+Aplicación de gestión de productos desarrollada con **Angular 19**, enfocada un enfoque profesional en arquitectura de software, calidad de código y experiencia de usuario. La solución cumple y excede todos los requisitos de la prueba técnica.
 
 ---
 
