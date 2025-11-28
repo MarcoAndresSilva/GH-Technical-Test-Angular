@@ -26,7 +26,7 @@ Aplicación de gestión de productos desarrollada con **Angular 19**, enfocada u
 -   **CRUD Completo**: Funcionalidad para Listar, Crear y Eliminar productos.
 -   **Formularios Reactivos**: Creación de productos a través de un modal con validaciones del lado del cliente.
 -   **UX Mejorada**: Diálogo de confirmación para acciones destructivas y notificaciones "toast" para feedback al usuario.
--   **Diseño Responsivo**: Interfaz moderna y totalmente adaptable a cualquier tamaño de pantalla (`mobile-first`).
+-   **Diseño Responsivo**: Interfaz moderna y adaptable a cualquier tamaño de pantalla (`mobile-first`).
 -   **Arquitectura Robusta**: Código limpio, modular y escalable documentado en `ARCHITECTURE.md`.
 
 ---
